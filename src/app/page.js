@@ -1,11 +1,38 @@
+"use client";
+
 import VantaHalo from "@/components/halo";
 import styles from "./page.module.css";
+import { motion } from "motion/react";
+
+const ANIMATION_SLIDE_UP_FADE = {
+  initial: { opacity: 0, y: 40 },
+  whileInView: { opacity: 1, y: 0 },
+
+  transition: { duration: 0.6, ease: "easeOut" },
+  viewport: { once: false, amount: 0.3 },
+};
+
+function DivSlideUpFade({ className, children, style }) {
+  return (
+    <motion.div
+      initial={ANIMATION_SLIDE_UP_FADE.initial}
+      whileInView={ANIMATION_SLIDE_UP_FADE.whileInView}
+      transition={ANIMATION_SLIDE_UP_FADE.transition}
+      viewport={ANIMATION_SLIDE_UP_FADE.viewport}
+      exit={ANIMATION_SLIDE_UP_FADE.initial}
+      className={className}
+      style={style}
+    >
+      {children}
+    </motion.div>
+  );
+}
 
 function HeroSection() {
   return (
     <div className={styles.heroSection}>
       <VantaHalo />
-      <div className={styles.heroContent}>
+      <DivSlideUpFade className={styles.heroContent}>
         <h1 className={styles.heroTitle}>
           Your AI Powered <br></br>Client Retention Platform. Built for{" "}
           <span className={styles["gradient-text"]}>High-Volume</span>
@@ -24,7 +51,7 @@ function HeroSection() {
             <b>3M</b>, <b>Roundup</b>, and more
           </p>
         </div>
-      </div>
+      </DivSlideUpFade>
     </div>
   );
 }
@@ -46,7 +73,9 @@ function ProblemStatementCard({ title, children }) {
 
 function ProblemStatementSection() {
   return (
-    <div className={`${styles.problemStatementSection} ${styles.section}`}>
+    <DivSlideUpFade
+      className={`${styles.problemStatementSection} ${styles.section}`}
+    >
       <h3>Mass Tort Client Management Challenges</h3>
       <p>Mass tort litigation creates unique challenges for law firms</p>
       <div className={styles.problemStatementCards}>
@@ -68,7 +97,7 @@ function ProblemStatementSection() {
         </ProblemStatementCard>
       </div>
       <ProblemStatementVisual />
-    </div>
+    </DivSlideUpFade>
   );
 }
 
@@ -86,7 +115,7 @@ function SolutionSubSection({ title, children }) {
 
 function SolutionSection() {
   return (
-    <div className={`${styles.solutionSection} ${styles.section}`}>
+    <DivSlideUpFade className={`${styles.solutionSection} ${styles.section}`}>
       <h3>
         The Solution for Mass Tort Firms - <br></br> Provide{" "}
         <span className={styles["gradient-text"]}>
@@ -137,7 +166,7 @@ function SolutionSection() {
           <a href="/solutions">Discover How Kayse Works</a>
         </button>
       </div>
-    </div>
+    </DivSlideUpFade>
   );
 }
 
@@ -158,7 +187,7 @@ function ObjectionSection() {
     <div className={`${styles.objectionSection} ${styles.section}`}>
       <h3>The Difference Between Communication and Connection</h3>
       <div className={styles.objectionCards}>
-        <div className={styles.objectionCard}>
+        <DivSlideUpFade className={styles.objectionCard}>
           <h4>Kayse Goes Beyond Calls, Texts & Emails</h4>
           <Phone>
             <MessageBubble>
@@ -178,8 +207,8 @@ function ObjectionSection() {
               for higher-value tasks.
             </MessageBubbleKayse>
           </Phone>
-        </div>
-        <div className={styles.objectionCard}>
+        </DivSlideUpFade>
+        <DivSlideUpFade className={styles.objectionCard}>
           <h4>Kayse Goes Beyond Salesforce</h4>
           <Phone>
             <MessageBubble>I already have Salesforce</MessageBubble>
@@ -210,8 +239,8 @@ function ObjectionSection() {
               file for injury firms.
             </MessageBubbleKayse>
           </Phone>
-        </div>
-        <div className={styles.objectionCard}>
+        </DivSlideUpFade>
+        <DivSlideUpFade className={styles.objectionCard}>
           <h4>Kayse Goes Beyond Generic CRMs</h4>
           <Phone>
             <MessageBubble>
@@ -231,7 +260,7 @@ function ObjectionSection() {
               client attrition.
             </MessageBubbleKayse>
           </Phone>
-        </div>
+        </DivSlideUpFade>
       </div>
       <div className={styles.solutionButton}>
         <p>Wish to learn more about how we stack up against others?</p>
@@ -254,7 +283,11 @@ function ResultSectionMetric({ title, subtitle, children }) {
 }
 
 function ResultSectionQuote({ children }) {
-  return <div className={styles.resultSectionQuote}>{children}</div>;
+  return (
+    <DivSlideUpFade className={styles.resultSectionQuote}>
+      {children}
+    </DivSlideUpFade>
+  );
 }
 
 function ResultsSection() {
@@ -265,7 +298,7 @@ function ResultsSection() {
         Get <span className={styles["gradient-text"]}>Results That Matter</span>
         .
       </h3>
-      <div className={styles.resultsMetrics}>
+      <DivSlideUpFade className={styles.resultsMetrics}>
         <ResultSectionMetric title="$12-18k" subtitle="In Savings per Month">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed odio
           arcu, tincidunt eget faucibus eu, rhoncus quis lorem. Nullam a luctus
@@ -292,7 +325,7 @@ function ResultsSection() {
           arcu, tincidunt eget faucibus eu, rhoncus quis lorem. Nullam a luctus
           justo, sed bibendum mauris.
         </ResultSectionMetric>
-      </div>
+      </DivSlideUpFade>
       <ResultSectionQuote>
         <blockquote>
           <sup>
