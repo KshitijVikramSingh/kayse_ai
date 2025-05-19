@@ -141,22 +141,16 @@ function SolutionSection() {
   );
 }
 
-function MessageBubble({ message }) {
-  return <div className={styles.messageBubble}>{message}</div>;
+function MessageBubble({ children }) {
+  return <div className={styles.messageBubble}>{children}</div>;
 }
 
-function MessageBubbleKayse({ message }) {
-  return <div className={styles.messageBubbleKayse}>{message}</div>;
+function MessageBubbleKayse({ children }) {
+  return <div className={styles.messageBubbleKayse}>{children}</div>;
 }
 
-function ObjectionCards({ title, userMessage, kayseMessage }) {
-  return (
-    <div className={styles.objectionCards}>
-      <h4>{title}</h4>
-      <MessageBubble message={userMessage} />
-      <MessageBubbleKayse message={kayseMessage} />
-    </div>
-  );
+function Phone({ children }) {
+  return <div className={styles.phone}>{children}</div>;
 }
 
 function ObjectionSection() {
@@ -164,21 +158,86 @@ function ObjectionSection() {
     <div className={`${styles.objectionSection} ${styles.section}`}>
       <h3>The Difference Between Communication and Connection</h3>
       <div className={styles.objectionCards}>
-        <ObjectionCards
-          title="Beyond Calls, Texts & Emails"
-          userMessage="I don't have time to talk right now."
-          kayseMessage="I understand. I can send you a quick message instead."
-        />
-        <ObjectionCards
-          title="Beyond Generic CRMs"
-          userMessage="I need to think about it."
-          kayseMessage="That's completely fine. I'm here when you're ready."
-        />
-        <ObjectionCards
-          title="Beyond Salesforce"
-          userMessage="I don't want to be bothered."
-          kayseMessage="I respect your space. I'll check in later."
-        />
+        <div className={styles.objectionCard}>
+          <h4>Kayse Goes Beyond Calls, Texts & Emails</h4>
+          <Phone>
+            <MessageBubble>
+              I already call, text, and email my clients
+            </MessageBubble>
+            <MessageBubbleKayse>
+              The challenge isn't whether you're communicating, but whether your
+              team can maintain consistent, personalized outreach when handling
+              hundreds or thousands of clients simultaneously over extended
+              timelines.
+            </MessageBubbleKayse>
+            <MessageBubbleKayse>
+              Our AI-powered retention platform doesn't replace your existing
+              channels—it amplifies them. Rather than your staff members
+              spending 12-15 hours per week each on routine updates, our
+              human-like voice AI handles these automatically, freeing your team
+              for higher-value tasks.
+            </MessageBubbleKayse>
+          </Phone>
+        </div>
+        <div className={styles.objectionCard}>
+          <h4>Kayse Goes Beyond Salesforce</h4>
+          <Phone>
+            <MessageBubble>I already have Salesforce</MessageBubble>
+            <MessageBubbleKayse>
+              Unlike Salesforce, which is designed for general business and
+              sales environments, our solution is purpose-built for legal client
+              retention:
+              <ul>
+                <li>
+                  Our voice AI is specifically trained on legal client
+                  conversations
+                </li>
+                <li>
+                  Our sentiment analysis recognizes the unique emotional
+                  patterns that precede client dissatisfaction in long
+                  litigation processes
+                </li>
+                <li>
+                  Our mobile client portal achieves 70%+ adoption rates because
+                  it's designed specifically for clients who need simplified
+                  case tracking
+                </li>
+              </ul>
+            </MessageBubbleKayse>
+            <MessageBubbleKayse>
+              Plus, unlike Salesforce's implementation costs that aren't
+              recoverable, Kayse is billable as a case expense to each client
+              file for injury firms.
+            </MessageBubbleKayse>
+          </Phone>
+        </div>
+        <div className={styles.objectionCard}>
+          <h4>Kayse Goes Beyond Generic CRMs</h4>
+          <Phone>
+            <MessageBubble>
+              I already have a CRM and send newsletters
+            </MessageBubble>
+            <MessageBubbleKayse>
+              While newsletters are valuable for general updates, they don't
+              address the individual client's need for personalized case status
+              information or emotional reassurance during lengthy proceedings.
+            </MessageBubbleKayse>
+            <MessageBubbleKayse>
+              Kayse enhances your CRM and other apps by adding intelligent,
+              automated 1:1 communications that respond to each client's
+              specific case status and emotional needs—with sentiment analysis
+              that continuously monitors communication patterns for signs of
+              frustration, confusion, or disengagement that typically precede
+              client attrition.
+            </MessageBubbleKayse>
+          </Phone>
+        </div>
+      </div>
+      <div className={styles.solutionButton}>
+        <p>Wish to learn more about how we stack up against others?</p>
+        <button className={styles.button}>
+          <a href="/why-kayse">See How We Compare</a>
+        </button>
       </div>
     </div>
   );
@@ -306,7 +365,7 @@ function FinalCTASection() {
         tasks.
       </p>
       <button className={styles.button}>
-        <a href="//demo-request">Book Your Demo</a>
+        <a href="/demo-request">Book Your Demo</a>
       </button>
     </div>
   );
