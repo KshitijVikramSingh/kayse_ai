@@ -202,39 +202,137 @@ function ObjectionSection() {
   );
 }
 
-function ResultSectionMetric({ title, description }) {
+function ResultSectionMetric({ title, subtitle, children, style }) {
   return (
-    <div className={styles.resultSectionMetric}>
+    <div className={styles.resultSectionMetric} style={style}>
       <h4>{title}</h4>
-      <p>{description}</p>
+      <h5>{subtitle}</h5>
+      {children}
     </div>
   );
 }
 
-function ResultSectionQuote({ quote }) {
-  return (
-    <div className={styles.resultSectionQuote}>
-      <p>{quote}</p>
-    </div>
-  );
+function ResultSectionQuote({ children }) {
+  return <div className={styles.resultSectionQuote}>{children}</div>;
 }
 
 function ResultsSection() {
   return (
     <div className={`${styles.resultSection} ${styles.section}`}>
-      <h3>Results That Matter</h3>
+      <h3>
+        Your Business, Transformed By Kayse.<br></br>
+        Get <span className={styles["gradient-text"]}>Results That Matter</span>
+        .
+      </h3>
       <div className={styles.resultsMetrics}>
         <ResultSectionMetric
-          title="50% Reduction in Client Churn"
-          description="Our clients have seen a significant decrease in client churn rates."
-        />
+          title="$12-18k"
+          subtitle="In Savings per Month"
+          style={{
+            gridColumn: "1 / 5", // Wide tile
+            gridRow: "1 / 3", // Taller tile
+          }}
+        >
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed odio
+          arcu, tincidunt eget faucibus eu, rhoncus quis lorem. Nullam a luctus
+          justo, sed bibendum mauris.
+          <br></br>
+          <br></br>
+          Nullam euismod mi elit, at gravida velit porttitor in. Cras vitae orci
+          mattis, pharetra leo vitae, placerat augue.
+          <br></br>
+          <br></br>
+          Nullam euismod mi elit, at gravida velit porttitor in. Cras vitae orci
+          mattis, pharetra leo vitae, placerat augue. Nullam euismod mi elit, at
+          gravida velit porttitor in. Cras vitae orci mattis, pharetra leo
+          vitae, placerat augue.
+        </ResultSectionMetric>
         <ResultSectionMetric
-          title="30% Increase in Client Satisfaction"
-          description="Improved communication has led to higher client satisfaction scores."
-        />
-        <ResultSectionQuote quote="Kayse has transformed our client management process!" />
+          title="25-30"
+          subtitle="Hours Saved per Week"
+          style={{
+            gridColumn: "5 / 7", // Half-width tile
+            gridRow: "1 / 2", // Normal height
+          }}
+        >
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+        </ResultSectionMetric>
+        <ResultSectionMetric
+          title="27%"
+          subtitle="Reduced Attrition"
+          style={{
+            gridColumn: "7 / 9", // Rightmost
+            gridRow: "1 / 2",
+          }}
+        >
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+        </ResultSectionMetric>
+        <ResultSectionMetric
+          title="+31"
+          subtitle="Increased NPS"
+          style={{
+            gridColumn: "5 / 9", // Spans full right side
+            gridRow: "2 / 3", // Bottom aligned
+          }}
+        >
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed odio
+          arcu, tincidunt eget faucibus eu, rhoncus quis lorem. Nullam a luctus
+          justo, sed bibendum mauris.
+        </ResultSectionMetric>
+      </div>
+      <ResultSectionQuote>
+        <blockquote>
+          <sup>
+            <span className={styles["gradient-text"]}>“</span>
+          </sup>
+          Handling a docket of 2,500+ Camp Lejeune cases, we were drowning in
+          routine client calls and we later found out that most cases were
+          missing intake information to proceed with each case.
+          <br></br>
+          <br></br>
+          Kayse's Voice AI now handles 83% of these inquiries, providing
+          consistent updates while our legal team focuses on advancing the
+          litigation. The client retention improvement alone paid for the system
+          within two months.
+          <br></br>
+          <br></br>
+          <cite>- Jennifer R., Mass Tort Practice Manager</cite>
+        </blockquote>
+      </ResultSectionQuote>
+      <div className={styles.solutionButton}>
+        <p>
+          Discover how Kayse helps businesses transform their client management
+        </p>
+        <button className={styles.button}>
+          <a href="/resources#case-studies">See More Success Stories</a>
+        </button>
       </div>
     </div>
+  );
+}
+
+function Footer() {
+  return (
+    <>
+      <p
+        className={styles.heroSubtext}
+        style={{ color: "#FFF", fontSize: "0.5em" }}
+      >
+        Join leading mass tort firms in revolutionizing client management.
+      </p>
+      <div className={styles.footerContent}>
+        <p>&copy; 2023 Kayse. All rights reserved.</p>
+        <div className={styles.footerLinks}>
+          <a href="/privacy">Privacy Policy</a>
+          <a href="/terms">Terms of Service</a>
+        </div>
+        <div className={styles.socialMediaLinks}>
+          <a href="https://www.linkedin.com/company/kayse-ai">LinkedIn</a>
+          <a href="https://twitter.com/kayse_ai">Twitter</a>
+          <a href="https://www.facebook.com/kayse.ai">Facebook</a>
+        </div>
+      </div>
+    </>
   );
 }
 
@@ -245,34 +343,33 @@ function FinalCTASection() {
         Ready to <span className={styles["gradient-text"]}>Transform</span> Your
         Client Management ?
       </h3>
-      <p>Request a demo today and see how we can help your firm.</p>
+      <p>
+        Book a personalized demo to see how Kayse can help your firm reduce
+        client attrition while freeing your team from routine communication
+        tasks.
+      </p>
       <button className={styles.button}>
         <a href="//demo-request">Book Your Demo</a>
       </button>
-      <p className={styles.heroSubtext}>
-        Join leading mass tort firms in revolutionizing client management.
-      </p>
-      <small className={styles.footer}>
-        <a href="https://kayse.ai">kayse.ai</a> |{" "}
-        <a href="https://kayse.ai/privacy">Privacy Policy</a> |{" "}
-        <a href="https://kayse.ai/terms">Terms of Service</a>
-        <br></br>
-        &copy; 2025 Kayse. All rights reserved.
-      </small>
     </div>
   );
 }
 
 export default function Home() {
   return (
-    <main className={styles.page}>
-      <div className={styles.header}></div>
-      <HeroSection />
-      <ProblemStatementSection />
-      <SolutionSection />
-      <ObjectionSection />
-      <ResultsSection />
-      <FinalCTASection />
-    </main>
+    <>
+      <main className={styles.page}>
+        <div className={styles.header}></div>
+        <HeroSection />
+        <ProblemStatementSection />
+        <SolutionSection />
+        <ObjectionSection />
+        <ResultsSection />
+        <FinalCTASection />
+      </main>
+      <footer className={styles.footer}>
+        <Footer />
+      </footer>
+    </>
   );
 }
