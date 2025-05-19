@@ -202,9 +202,9 @@ function ObjectionSection() {
   );
 }
 
-function ResultSectionMetric({ title, subtitle, children, style }) {
+function ResultSectionMetric({ title, subtitle, children }) {
   return (
-    <div className={styles.resultSectionMetric} style={style}>
+    <div className={styles.resultSectionMetric}>
       <h4>{title}</h4>
       <h5>{subtitle}</h5>
       {children}
@@ -225,14 +225,7 @@ function ResultsSection() {
         .
       </h3>
       <div className={styles.resultsMetrics}>
-        <ResultSectionMetric
-          title="$12-18k"
-          subtitle="In Savings per Month"
-          style={{
-            gridColumn: "1 / 5", // Wide tile
-            gridRow: "1 / 3", // Taller tile
-          }}
-        >
+        <ResultSectionMetric title="$12-18k" subtitle="In Savings per Month">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed odio
           arcu, tincidunt eget faucibus eu, rhoncus quis lorem. Nullam a luctus
           justo, sed bibendum mauris.
@@ -247,34 +240,13 @@ function ResultsSection() {
           gravida velit porttitor in. Cras vitae orci mattis, pharetra leo
           vitae, placerat augue.
         </ResultSectionMetric>
-        <ResultSectionMetric
-          title="25-30"
-          subtitle="Hours Saved per Week"
-          style={{
-            gridColumn: "5 / 7", // Half-width tile
-            gridRow: "1 / 2", // Normal height
-          }}
-        >
+        <ResultSectionMetric title="25-30" subtitle="Hours Saved per Week">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit.
         </ResultSectionMetric>
-        <ResultSectionMetric
-          title="27%"
-          subtitle="Reduced Attrition"
-          style={{
-            gridColumn: "7 / 9", // Rightmost
-            gridRow: "1 / 2",
-          }}
-        >
+        <ResultSectionMetric title="27%" subtitle="Reduced Attrition">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit.
         </ResultSectionMetric>
-        <ResultSectionMetric
-          title="+31"
-          subtitle="Increased NPS"
-          style={{
-            gridColumn: "5 / 9", // Spans full right side
-            gridRow: "2 / 3", // Bottom aligned
-          }}
-        >
+        <ResultSectionMetric title="+31" subtitle="Increased NPS">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed odio
           arcu, tincidunt eget faucibus eu, rhoncus quis lorem. Nullam a luctus
           justo, sed bibendum mauris.
