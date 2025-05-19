@@ -31,9 +31,7 @@ function HeroSection() {
 
 function ProblemStatementVisual() {
   return (
-    <div className={styles.problemStatementVisual}>
-      Insert Attrition Visual Here
-    </div>
+    <div className={styles.problemStatementVisual}>Insert Visual Here</div>
   );
 }
 
@@ -74,15 +72,15 @@ function ProblemStatementSection() {
   );
 }
 
-function SolutionSubSection({ title, children, image, alt }) {
+function SolutionSubSection({ title, children }) {
   return (
-    <div className={styles.solutionSubSection}>
-      <div className={styles.solutionSubSectionImage}>
-        <img src={image} alt={alt} />
+    <>
+      <ProblemStatementVisual />
+      <div className={styles.solutionSubSectionContent}>
+        <h4 className={styles.subSectionTitle}>{title}</h4>
+        {children}
       </div>
-      <h4 className={styles.subSectionTitle}>{title}</h4>
-      {children}
-    </div>
+    </>
   );
 }
 
@@ -98,13 +96,7 @@ function SolutionSection() {
         With Less Work
       </h3>
       <div className={styles.solutionCards}>
-        <SolutionSubSection
-          title="Human-like Voice AI"
-          image={
-            "https://images.pexels.com/photos/5387287/pexels-photo-5387287.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
-          }
-          alt="Voice AI"
-        >
+        <SolutionSubSection title="Human-like Voice AI">
           <ul>
             <li>
               Provides consistent, personalized client updates without staff
@@ -117,11 +109,7 @@ function SolutionSection() {
             </li>
           </ul>
         </SolutionSubSection>
-        <SolutionSubSection
-          title="Sentiment Analysis Technology"
-          image="https://images.pexels.com/photos/17483868/pexels-photo-17483868/free-photo-of-an-artist-s-illustration-of-artificial-intelligence-ai-this-image-represents-how-machine-learning-is-inspired-by-neuroscience-and-the-human-brain-it-was-created-by-novoto-studio-as-par.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
-          alt="Sentiment Analysis"
-        >
+        <SolutionSubSection title="Sentiment Analysis Technology">
           <ul>
             <li>
               Identifies early warning signs of client dissatisfaction through
@@ -135,13 +123,7 @@ function SolutionSection() {
             </li>
           </ul>
         </SolutionSubSection>
-        <SolutionSubSection
-          title="Dedicated Mobile Client Portal App"
-          image={
-            "https://images.pexels.com/photos/4910129/pexels-photo-4910129.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
-          }
-          alt="Mobile App"
-        >
+        <SolutionSubSection title="Dedicated Mobile Client Portal">
           <ul>
             <li>Gives clients 24/7 access to case information</li>
             <li>Reduces inbound inquiry calls by over 40%</li>
@@ -293,12 +275,15 @@ function Footer() {
         Join leading mass tort firms in revolutionizing client management.
       </p>
       <div className={styles.footerContent}>
-        <p>&copy; 2023 Kayse. All rights reserved.</p>
         <div className={styles.footerLinks}>
           <a href="/privacy">Privacy Policy</a>
           <a href="/terms">Terms of Service</a>
         </div>
-        <div className={styles.socialMediaLinks}>
+        <p>
+          &copy; 2025 Kayse.ai | 1400 Old Country Rd, Suite 305, Westbury, NY
+          11590
+        </p>
+        <div className={styles.footerLinks}>
           <a href="https://www.linkedin.com/company/kayse-ai">LinkedIn</a>
           <a href="https://twitter.com/kayse_ai">Twitter</a>
           <a href="https://www.facebook.com/kayse.ai">Facebook</a>
@@ -313,7 +298,7 @@ function FinalCTASection() {
     <div className={`${styles.finalCTASection} ${styles.section}`}>
       <h3>
         Ready to <span className={styles["gradient-text"]}>Transform</span> Your
-        Client Management ?
+        Client Management?
       </h3>
       <p>
         Book a personalized demo to see how Kayse can help your firm reduce

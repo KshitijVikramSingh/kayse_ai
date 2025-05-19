@@ -234,6 +234,8 @@
   margin-top: 2rem;
 
   background-color: #3478f60a;
+  border: 2px solid #3478f610;
+  backdrop-filter: blur(8px);
   color: #e0e0e0ea;
 
   font-size: 1rem;
@@ -257,12 +259,36 @@
   text-align: left !important;
 }
 
+.solutionSection {
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.solutionSection::before {
+  content: "";
+  position: absolute;
+  top: -25%;
+  left: -25%;
+  width: 150%;
+  height: 150%;
+  z-index: 0;
+  pointer-events: none;
+
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 52'%3E%3Cg transform='translate(10,10)'%3E%3Cpath d='M20.2681 0V6.83763V20.2649H3.41721L6.83763 18.1102V6.83763H20.2681L13.7751 2.74407L9.42711 0H0V22.7932L6.71525 27.1025H20.2681L27.1058 31.5021V4.30935L20.2681 0Z' fill='%233478F6'/%3E%3C/g%3E%3C/svg%3E");
+  /* background-size: 48px 52px; */
+  background-repeat: repeat;
+  background-size: clamp(120px, 18vw, 192px) clamp(144px, 21vw, 216px);
+  transform: rotate(-6deg);
+  opacity: 0.05;
+}
+
 .solutionCards {
   margin-top: 4rem;
   margin-bottom: 2rem;
 
   display: grid;
-  grid-template-columns: repeat(3, 1fr); /* fixed to 3 columns */
+  grid-template-columns: repeat(3, 1fr);
   gap: 2rem;
 
   /* Prevent wrapping / overflow on smaller screens */
@@ -270,25 +296,18 @@
   padding-bottom: 1rem;
 }
 
-.solutionSubSection {
+.solutionSubSectionContent {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-
-  max-width: 30vw;
+  justify-content: flex-start;
 
   gap: 1rem;
-  flex: 1;
 
-  background: linear-gradient(180deg, #3478f60a 0%, #3478f605 100%);
+  padding: 2rem 2rem;
+  backdrop-filter: blur(16px);
   border-radius: 12px;
 
-  backdrop-filter: blur(8px);
-  transition: all 0.3s cubic-bezier(0.215, 0.61, 0.355, 1);
-
-  padding: 1rem 1rem 2rem 1rem;
-  text-align: left !important;
+  border: 1px solid #3478f610;
 }
 
 .subSectionTitle {
@@ -303,13 +322,13 @@
   width: 100%;
 }
 
-.solutionSubSection ul {
+.solutionSubSectionContent ul {
   list-style: none;
   padding: 0;
   margin: 0;
 }
 
-.solutionSubSection ul li {
+.solutionSubSectionContent ul li {
   display: flex;
   align-items: center;
 
@@ -320,9 +339,11 @@
   margin-bottom: 0.8rem;
 }
 
-.solutionSubSectionImage img {
-  width: 100%;
-  border-radius: 12px;
+.solutionCards .problemStatementVisual {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+
+  height: unset !important;
 }
 
 .solutionButton {
@@ -545,6 +566,36 @@
 
   background-color: #0a0d14;
   color: #e0e0e0;
+}
 
-  padding-bottom: 4rem;
+.footerContent {
+  display: flex;
+  gap: 1rem;
+
+  width: 100%;
+
+  padding: 0 2rem;
+
+  align-items: center;
+  justify-content: space-between;
+}
+
+.footerLinks {
+  display: flex;
+  gap: 1rem;
+
+  align-items: center;
+  justify-content: center;
+}
+
+.footer a {
+  font-weight: 500;
+}
+
+.footer p {
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #a0a0a0 !important;
+
+  text-align: center;
 }
